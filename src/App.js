@@ -1,24 +1,25 @@
-import EmployeeList from "./components/EmployeeList";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Route, Routes } from "react-router"
+import { Route, Routes } from "react-router";
 import CreateEmployee from "./components/CreateEmployee";
-
+import { ListEmployee } from "./components/ListEmployee";
+import "./App.css";
 
 function App() {
   return (
     <div>
       <Router>
-          <Header />
-          <div className=" container">
-            <Routes>
-                <Route path="/" element={<EmployeeList />} />
-                <Route path= "/employees" element = {<EmployeeList />} />
-                <Route path="/add-employee" element={<CreateEmployee />} />
-            </Routes>
-          </div>
-          <Footer />
+        <Header />
+        <div className="container">
+          <Routes>
+            <Route exact path="/" element={<ListEmployee />} />
+            <Route path="/employees" element={<ListEmployee />} />
+            <Route path="/add-employee" element={<CreateEmployee />} />
+            <Route path="/edit-employee/:id" element={<CreateEmployee />} />
+          </Routes>
+        </div>
+        <Footer />
       </Router>
     </div>
   );
